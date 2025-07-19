@@ -1,0 +1,10 @@
+torch-bin
+torchvision-bin
+numpy
+fastapi
+uvicorn
+ray
+onnx
+onnxruntime
+grpcio
+python-multipart
