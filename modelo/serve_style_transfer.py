@@ -9,15 +9,11 @@ import numpy as np
 
 from torchvision import transforms
 
-# Definición de la Aplicación FastAPI (para manejar las peticiones HTTP)
-app = FastAPI()
-
 # Definición del Despliegue de Ray Serve
 @serve.deployment(
-    num_replicas=2,  # 2 copias de nuestro servicio
+    num_replicas=1,  # Copias de nuestro servicio
     ray_actor_options={"num_gpus": 0.5} # Cada copia usa media GPU
 )
-@serve.ingress(app) # Conecta este despliegue con nuestra app FastAPI
 class StyleTransferService:
     def __init__(self, style_model_path: str):
 
@@ -55,10 +51,8 @@ class StyleTransferService:
         return buffer.getvalue()
 
     # --- El Endpoint de nuestra API ---
-    @app.post("/stylize")
-    async def stylize(self, image: UploadFile = File(...)):
+    async def stylize(self, image_bytes: bytes):
         """Recibe una imagen, la estiliza y la devuelve."""
-        image_bytes = await image.read()
         
         # 1. Pre-procesar la imagen
         input_numpy = self._preprocess(image_bytes)
@@ -72,20 +66,17 @@ class StyleTransferService:
         result_bytes = self._postprocess(output_numpy)
         
         # 4. Devolver la imagen estilizada
-        from starlette.responses import Response
-        return Response(content=result_bytes, media_type="image/jpeg")
+        return result_bytes
 
 
-mosaic_model_path = "modelo/saved_models/candy.onnx"
-service_app = StyleTransferService.bind(style_model_path=mosaic_model_path)
-
-# candy_model_path = "saved_models/candy.onnx"
-# app_van_gogh = StyleTransferService.bind(style_model_path=candy_model_path)
 
 if __name__ == "__main__":
     # Conectarse al clúster de Ray que ya está corriendo
     # address="auto" le dice a Ray que busque el clúster existente.
     ray.init(address="auto", namespace="serve") 
-    
+
+    mosaic_model_path = "modelo/saved_models/candy.onnx"
+    service_app = StyleTransferService.bind(style_model_path=mosaic_model_path)
+
     # Desplegar la app en el clúster
     serve.run(service_app)
