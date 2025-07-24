@@ -2,8 +2,22 @@ from ray import serve
 from fastapi import FastAPI, UploadFile, File
 from starlette.requests import Request # Importa Request
 from starlette.responses import Response, JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:5173",  # URL del cliente en local
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos los métodos (GET, POST, etc.)
+    allow_headers=["*"],  # Permite todas las cabeceras
+)
 
 @serve.deployment()
 @serve.ingress(app)
