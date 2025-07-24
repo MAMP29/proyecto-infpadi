@@ -32,6 +32,6 @@ python main.py
 ```bash
 curl -X POST \
      -F "image=@modelo/images/input-images/normal_girl.jpeg" \
-     http://127.0.0.1:8000/stylize \
+     http://127.0.0.1:8000/stylize/mosaic \
      --output ray_mosaic_girl.jpg
 ```
