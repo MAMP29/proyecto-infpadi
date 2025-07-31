@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "Flake de desarrollo para el modelo";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -30,6 +30,7 @@
         pythonEnv
         pkgs.zsh
         pkgs.grpc
+        pkgs.aws2
       ];
 
       shellHook = ''

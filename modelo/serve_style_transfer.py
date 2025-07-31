@@ -12,7 +12,7 @@ from torchvision import transforms
 # Definición del Despliegue de Ray Serve
 @serve.deployment(
     num_replicas=1,  # Copias de nuestro servicio
-    ray_actor_options={"num_gpus": 0.5} # Cada copia usa media GPU
+    ray_actor_options={"num_gpus": 0.25} # Cada copia usa un pedazo de la GPU
 )
 class StyleTransferService:
     def __init__(self, style_model_path: str):

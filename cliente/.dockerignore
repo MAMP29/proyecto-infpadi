@@ -1,0 +1,11 @@
+# Dependencias de Node, se instalan dentro del contenedor
+node_modules
+
+# Archivos de caché y salida de SvelteKit que se generan en el contenedor
+.svelte-kit
+build
+
+# Logs y variables de entorno locales
+npm-debug.log*
+.env
+.env.*
