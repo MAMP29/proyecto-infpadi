@@ -1,6 +1,7 @@
 torch
 torchvision
-onnxruntime 
+onnxruntime
+onnxruntime-gpu
 ray[serve]
 fastapi
 uvicorn

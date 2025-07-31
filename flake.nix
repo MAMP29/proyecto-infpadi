@@ -22,6 +22,7 @@
       onnxruntime
       grpcio
       python-multipart
+      boto3
     ]);
 
   in {
@@ -30,7 +31,7 @@
         pythonEnv
         pkgs.zsh
         pkgs.grpc
-        pkgs.aws2
+        pkgs.awscli2
       ];
 
       shellHook = ''
