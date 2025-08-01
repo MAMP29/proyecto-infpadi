@@ -17,3 +17,4 @@ result
 docker-compose.yaml
 modelo/Dockerfile-minimal
 cluster.yaml
+start-demo.sh
