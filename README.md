@@ -4,24 +4,24 @@ Este repositorio contiene el desarrollo del proyecto para el curso de Infraestru
 
 ---
 
-## 📁 Estructura del Repositorio
+## Estructura del Repositorio
 
 * `modelo/`: Modelo de inteligencia artificial y servidor de inferencia.
 * `cliente/`: Aplicación web para probar el modelo desde el navegador.
 
 ---
 
-## 🧠 Modelo
+## Modelo
 
 Se utiliza un modelo de *Fast Style Transfer* basado en CNNs, tomado del repositorio oficial de [PyTorch Examples](https://github.com/pytorch/examples/tree/main/fast_neural_style). Este permite aplicar diferentes estilos artísticos preentrenados sobre imágenes de entrada.
 
 Este proyecto adapta dicho modelo para su uso en entornos distribuidos, ejecutando múltiples instancias del mismo en paralelo mediante Ray.
 
-👉 Consulta la [documentación original](https://github.com/pytorch/examples/blob/main/fast_neural_style/README.md) para más detalles sobre su arquitectura y entrenamiento.
+Consulta la [documentación original](https://github.com/pytorch/examples/blob/main/fast_neural_style/README.md) para más detalles sobre su arquitectura y entrenamiento.
 
 ---
 
-### 🔧 Ejecución del modelo
+### Ejecución del modelo
 
 1. Crea un entorno virtual en Python e instala los requerimientos según la carpeta `modelo/`. Hay dos opciones:
 
@@ -51,7 +51,7 @@ curl -X POST \
 
 ---
 
-## 🌐 Cliente
+## Cliente
 
 El cliente es una aplicación web que permite probar visualmente el sistema de estilización mediante una interfaz interactiva (desarrollado en Svelte).
 
@@ -80,3 +80,9 @@ nix develop
 
 Esto abrirá un entorno de desarrollo aislado. Luego, puedes ejecutar el modelo o el cliente como se indicó arriba.
 
+##  Video de ejecución
+
+Este video muestra la ejecución funcional del proyecto.  
+ **Nota:** El video está alojado en Google Drive con acceso restringido exclusivamente para el evaluador.
+
+[Ver video en Google Drive](https://drive.google.com/file/d/10QxWlcUh718PsFAC7GQ5yAKpeBoXJOnH/view?usp=drive_link)
