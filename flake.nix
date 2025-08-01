@@ -1,5 +1,5 @@
 {
-  description = "Flake de desarrollo para el modelo";
+  description = "Flake de ejecucion minima, ONNX CPU";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -12,8 +12,6 @@
       config. allowUnfree = true;
     };
     pythonEnv = pkgs.python313.withPackages (ps: with ps; [
-      torch-bin
-      torchvision-bin
       numpy
       fastapi
       uvicorn
@@ -22,7 +20,6 @@
       onnxruntime
       grpcio
       python-multipart
-      boto3
     ]);
 
   in {
@@ -31,7 +28,7 @@
         pythonEnv
         pkgs.zsh
         pkgs.grpc
-        pkgs.awscli2
+        pkgs.nodejs_22
       ];
 
       shellHook = ''

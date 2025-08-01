@@ -1,0 +1,7 @@
+onnxruntime
+ray[serve]
+fastapi
+uvicorn
+python-multipart
+Pillow
+numpy

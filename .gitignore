@@ -13,3 +13,7 @@ mi_env/
 .env/
 
 result
+
+docker-compose.yaml
+modelo/Dockerfile-minimal
+cluster.yaml
