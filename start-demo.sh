@@ -14,7 +14,7 @@ echo ""
 echo "-> Paso 1: Configurando el frontend de Svelte..."
 
 # Navegar al directorio del frontend
-cd frontend
+cd cliente
 
 # Instalar las dependencias de Node.js.
 # 'npm i' es un alias para 'npm install'.
@@ -45,7 +45,7 @@ echo ""
 echo "-> Paso 3: Iniciando el servidor de desarrollo del frontend (Vite)..."
 
 # Navegar al directorio del frontend de nuevo
-cd frontend
+cd cliente
 
 # Iniciar el servidor de Vite, que se conectará al backend a través del proxy.
 # Este será el proceso principal que mantendrá el script corriendo.
