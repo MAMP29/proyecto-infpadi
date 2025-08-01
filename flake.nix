@@ -20,6 +20,7 @@
       onnxruntime
       grpcio
       python-multipart
+      pillow
     ]);
 
   in {
